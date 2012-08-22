@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.255" errors="0" skipped="0" tests="5" name="com.github.stefanbirkner.gajs4java.core.render.InsertGaJsRendererTest">
+<testsuite failures="0" time="0.256" errors="0" skipped="0" tests="5" name="com.github.stefanbirkner.gajs4java.core.render.InsertGaJsRendererTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-oracle/jre/lib/amd64"/>
@@ -19,7 +19,7 @@
     <property name="basedir" value="/home/stefan/workspaces/webtools/gajs4java/gajs4java"/>
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-7-oracle/jre/lib/endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="surefire.real.class.path" value="/home/stefan/workspaces/webtools/gajs4java/gajs4java/target/surefire/surefirebooter460348644205393226.jar"/>
+    <property name="surefire.real.class.path" value="/home/stefan/workspaces/webtools/gajs4java/gajs4java/target/surefire/surefirebooter7404777255730455501.jar"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="line.separator" value="
 "/>
@@ -42,7 +42,7 @@
     <property name="java.vm.specification.version" value="1.7"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/usr/lib/jvm/java-7-oracle/jre"/>
-    <property name="sun.java.command" value="/home/stefan/workspaces/webtools/gajs4java/gajs4java/target/surefire/surefirebooter460348644205393226.jar /home/stefan/workspaces/webtools/gajs4java/gajs4java/target/surefire/surefire7337498500137381684tmp /home/stefan/workspaces/webtools/gajs4java/gajs4java/target/surefire/surefire675087400598719082tmp"/>
+    <property name="sun.java.command" value="/home/stefan/workspaces/webtools/gajs4java/gajs4java/target/surefire/surefirebooter7404777255730455501.jar /home/stefan/workspaces/webtools/gajs4java/gajs4java/target/surefire/surefire1945145588985074883tmp /home/stefan/workspaces/webtools/gajs4java/gajs4java/target/surefire/surefire369855096431522646tmp"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="de"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -59,9 +59,9 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.011" classname="com.github.stefanbirkner.gajs4java.core.render.InsertGaJsRendererTest" name="rendersStandardSnippet"/>
-  <testcase time="0.001" classname="com.github.stefanbirkner.gajs4java.core.render.InsertGaJsRendererTest" name="rendersHttpSnippet"/>
+  <testcase time="0.012" classname="com.github.stefanbirkner.gajs4java.core.render.InsertGaJsRendererTest" name="rendersHttpSnippet"/>
   <testcase time="0.003" classname="com.github.stefanbirkner.gajs4java.core.render.InsertGaJsRendererTest" name="failsToRenderDecideOnServer"/>
-  <testcase time="0.182" classname="com.github.stefanbirkner.gajs4java.core.render.InsertGaJsRendererTest" name="rendersHttpsSnippetBasedOnRequest"/>
+  <testcase time="0.183" classname="com.github.stefanbirkner.gajs4java.core.render.InsertGaJsRendererTest" name="rendersHttpsSnippetBasedOnRequest"/>
   <testcase time="0" classname="com.github.stefanbirkner.gajs4java.core.render.InsertGaJsRendererTest" name="failsToRenderDecideOnServerForUnknownScheme"/>
+  <testcase time="0" classname="com.github.stefanbirkner.gajs4java.core.render.InsertGaJsRendererTest" name="rendersStandardSnippet"/>
 </testsuite>
