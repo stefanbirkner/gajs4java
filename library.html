@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <title>GaJs4Java – Library</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">GaJs4Java</a>
+          <div class="nav-collapse">          
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="">Library</a></li>
+              <li><a href="taglib.html">Taglib</a></li>
+              <li><a href="license.html">License</a></li>
+              <li><a href="releases.html">Releases</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row-fluid page-header">
+        <h1>Library</h1>
+        <p>The library contains classes to build a model of the tracking
+        data and to render the JavaScript tracking code.</p>
+			</div>
+      <div class="row-fluid">
+        <div class="span3">
+          <ul class="nav nav-tabs nav-stacked">
+            <li><a href="#protocol">Protocol</a></li>
+            <li><a href="#insertGaJsRenderer">InsertGaJsRenderer</a></li>
+          </ul>
+        </div>
+        <div class="span9">
+					<section id="protocol">
+		        <h2>Protocol</h2>
+		        <p>The <code>Protocol</code> enum defines four ways of
+		        rendering the <code>ga.src</code> assignment of the snippet,
+		        which loads the <code>ga.js</code> script.</p>
+		        <h3>DECIDE_BY_JAVASCRIPT</h3>
+		        <p>This is the default ways to render the assignment. The
+		        JavaScript determines whether it loads the <code>ga.js</code>
+		        script using <code>http</code> or <code>https.</code>
+						<pre>ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';</pre>
+		        <h3>HTTP</h3>
+		        <p>The <code>ga.js</code> script is always loaded via
+		        <code>http.</code></p>
+						<pre>ga.src = 'http://www.google-analytics.com/ga.js';</pre>
+		        <h3>HTTPS</h3>
+		        <p>The <code>ga.js</code> script is always loaded via
+		        <code>https.</code></p>
+						<pre>ga.src = 'https://ssl.google-analytics.com/ga.js';</pre>
+		        <h3>DECIDE_BY_RENDERER</h3>
+		        <p>This protocol lets the renderer decide, whether to use
+		        <code>HTTP</code> or <code>HTTPS</code> based on the scheme
+		        of the <code>HttpServletRequest.</code></p>
+          </section>
+          <section id="insertGaJsRenderer">
+            <h2>InsertGaJsRenderer</h2>
+            <p>The <code>InsertGaJsRenderer</code> renders the JavaScript
+            snippet which loads the <code>ga.js</code> script. It has
+            two render methods. The
+            <code>writeGaJsInsertStatementToWriter(Writer, Protocol)</code>
+            writes the snippet to the specified writer using the
+            specified protocol. It has not to be used with the 
+            <code>DECIDE_BY_RENDERER</code> protocol. The seconde method
+            <code>writeGaJsInsertStatementToWriterUsingRequest(Writer, ServletRequest)</code>
+            uses the request's scheme to decide which of the protocols
+            <code>HTTP</code> and <code>HTTPS</code> to use.
+          </section>
+        </div>
+			</div>
+    </div>
+
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-24640829-6']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+    <script src="js/bootstrap.min.js"></script>
+   </body>
+</html>

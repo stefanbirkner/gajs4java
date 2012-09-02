@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <title>GaJs4Java – Taglib</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">GaJs4Java</a>
+          <div class="nav-collapse">          
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="library.html">Library</a></li>
+              <li class="active"><a href="">Taglib</a></li>
+              <li><a href="license.html">License</a></li>
+              <li><a href="releases.html">Releases</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row-fluid page-header">
+        <h1>Taglib</h1>
+        <p>The taglib is a collection of tags, which help you to add
+        Google web tracking to your site.</p>
+			</div>
+      <div class="row-fluid">
+        <div class="span3">
+          <ul class="nav nav-tabs nav-stacked">
+            <li><a href="#declaration">Declaration</a></li>
+            <li><a href="#insertGaJs">insertGaJs</a></li>
+          </ul>
+        </div>
+        <div class="span9">
+					<section id="protocol">
+            <h2>Declaration</h2>
+            <p>In order to use this tag library you have to declare it
+            by including a taglib directive before any custom tag is
+            used:</p>
+            <pre><%@ taglib prefix="gajs" uri="http://stefanbirkner.github.com/gajs4java/tlds/gajs" %></pre>
+          </section>
+					<section id="insertGaJs">
+		        <h2>insertGaJs</h2>
+		        <p>The <code>insertGaJs</code> tag renders the snippet,
+            which loads the <code>ga.js</code> script.</p>
+            The tag
+            <pre>&lt;gajs:insertGaJs/></pre>
+            renders the JavaScript code
+            <pre>(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</pre>
+            You may specify a <a href="library.html#protocol">Protocol</a>
+            in order to affect the rendering of the first line. E.g.
+            <pre>&lt;gajs:insertGaJs protocol="${'DECIDE_BY_RENDERER'}"/></pre>
+            renders a different third line of the JavaScript code for an
+            http request:
+            <pre>ga.src = 'http://www.google-analytics.com/ga.js';</pre>
+          </section>
+        </div>
+			</div>
+    </div>
+
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-24640829-6']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+    <script src="js/bootstrap.min.js"></script>
+   </body>
+</html>

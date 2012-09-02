@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <title>GaJs4Java</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">GaJs4Java</a>
+          <div class="nav-collapse">          
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="library.html">Library</a></li>
+              <li><a href="taglib.html">Taglib</a></li>
+              <li><a href="license.html">License</a></li>
+              <li><a href="releases.html">Releases</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="hero-unit">
+      <h1>GaJs4Java</h1>
+      <p>Java support for Google Web Tracking</p>
+    </header>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span6">
+          <h2>Library</h2>
+          <p>The library let you implement Google Web tracking with a
+          MVC application. Use its classes to create a model of the
+          tracking data and its renderer to render the JavaScript
+          tracking code.</p>
+          <p><a class="btn btn-primary" href="library.html">Show the Documentation</a></p>
+        </div>
+        <div class="span6">
+          <h2>Taglib</h2>
+          <p>The tag library let you add Google Web tracking to a JSP
+          using custom tags. For example you add track page view with a
+          single line of code.</p>
+          <p><a class="btn btn-primary" href="taglib.html">Show the Documentation</a></p>
+        </div>
+			</div>
+    </div>
+
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-24640829-6']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+   </body>
+</html>
