@@ -38,6 +38,7 @@
           <ul class="nav nav-tabs nav-stacked">
             <li><a href="#declaration">Declaration</a></li>
             <li><a href="#insertGaJs">insertGaJs</a></li>
+            <li><a href="#trackPageview">trackPageview</a></li>
           </ul>
         </div>
         <div class="span9">
@@ -48,6 +49,7 @@
             used:</p>
             <pre><%@ taglib prefix="gajs" uri="http://stefanbirkner.github.com/gajs4java/tlds/gajs" %></pre>
           </section>
+
 					<section id="insertGaJs">
 		        <h2>insertGaJs</h2>
 		        <p>The <code>insertGaJs</code> tag renders the snippet,
@@ -66,6 +68,31 @@
             renders a different third line of the JavaScript code for an
             http request:
             <pre>ga.src = 'http://www.google-analytics.com/ga.js';</pre>
+          </section>
+
+					<section id="trackPageview">
+		        <h2>trackPageview</h2>
+		        <p>The <code>trackPageview</code> tag renders all the code
+            for tracking pageviews.
+            <pre>&lt;gajs:trackPageview account="UA-XXXXX-X"/></pre>
+            renders the JavaScript code
+            <pre>&lt;script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-XXXXX-X']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+&lt;/script></pre>
+            </p>
+            <p>The <code>trackPageview</code> tag has an optional parameter
+            <code>pageUrl</code> to indicate what page URL to track
+            metrics under.</p>
+            <p>You may specify a <a href="library.html#protocol">Protocol</a>
+            in order to affect the rendering of the first line, too.
+            <pre>&lt;gajs:trackPageview account="UA-XXXXX-X" protocol="${'DECIDE_BY_RENDERER'}"/></pre></p>
           </section>
         </div>
 			</div>
