@@ -4,6 +4,7 @@ import static java.util.Arrays.asList;
 
 import java.util.List;
 
+
 public class SimpleCommand implements Command {
 	private final String methodName;
 	private final List<Object> arguments;
