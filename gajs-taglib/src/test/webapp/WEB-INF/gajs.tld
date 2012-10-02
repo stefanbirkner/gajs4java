@@ -20,4 +20,26 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
+
+	<tag>
+		<description>Renders all the code for tracking a pageview.</description>
+		<name>trackPageview</name>
+		<tag-class>com.github.stefanbirkner.gajs4java.taglib.TrackPageviewTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>account</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>pageUrl</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>protocol</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
 </taglib>
