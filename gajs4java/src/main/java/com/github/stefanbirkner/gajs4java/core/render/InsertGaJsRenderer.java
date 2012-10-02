@@ -1,12 +1,7 @@
 package com.github.stefanbirkner.gajs4java.core.render;
 
-import static com.github.stefanbirkner.gajs4java.core.model.Protocol.HTTP;
-import static com.github.stefanbirkner.gajs4java.core.model.Protocol.HTTPS;
-
 import java.io.IOException;
 import java.io.Writer;
-
-import javax.servlet.ServletRequest;
 
 import com.github.stefanbirkner.gajs4java.core.model.Protocol;
 
@@ -44,22 +39,5 @@ public class InsertGaJsRenderer {
 			throw new IllegalArgumentException("The protocol " + protocol
 					+ " is not supported.");
 		}
-	}
-
-	public void writeGaJsInsertStatementToWriterUsingRequest(Writer w,
-			ServletRequest request) throws IOException {
-		Protocol protocol = protocolForRequest(request);
-		writeGaJsInsertStatementToWriter(w, protocol);
-	}
-
-	private Protocol protocolForRequest(ServletRequest request) {
-		String scheme = request.getScheme();
-		if (scheme.equals("http"))
-			return HTTP;
-		else if (scheme.equals("https"))
-			return HTTPS;
-		else
-			throw new IllegalArgumentException("The scheme " + scheme
-					+ " is not supported. Onyl http and https are allowed.");
 	}
 }

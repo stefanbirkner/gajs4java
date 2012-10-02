@@ -7,14 +7,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.rules.ExpectedException.none;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.Rule;
@@ -45,30 +41,6 @@ public class InsertGaJsRendererTest {
 		thrown.expect(IllegalArgumentException.class);
 		renderer.writeGaJsInsertStatementToWriter(new StringWriter(),
 				DECIDE_BY_RENDERER);
-	}
-
-	@Test
-	public void rendersHttpsSnippetBasedOnRequest() throws IOException {
-		HttpServletRequest request = requestWithScheme("https");
-		StringWriter w = new StringWriter();
-		renderer.writeGaJsInsertStatementToWriterUsingRequest(w, request);
-		assertThat(w.toString(),
-				is(equalTo(snippetWithName("ga.js.https.snippet"))));
-	}
-
-	@Test
-	public void failsToRenderDecideOnServerForUnknownScheme()
-			throws IOException {
-		thrown.expect(IllegalArgumentException.class);
-		HttpServletRequest request = requestWithScheme("ftp");
-		renderer.writeGaJsInsertStatementToWriterUsingRequest(
-				new StringWriter(), request);
-	}
-
-	private HttpServletRequest requestWithScheme(String scheme) {
-		HttpServletRequest request = mock(HttpServletRequest.class);
-		when(request.getScheme()).thenReturn(scheme);
-		return request;
 	}
 
 	private void assertSnippetForProtocol(String snippetName, Protocol protocol)

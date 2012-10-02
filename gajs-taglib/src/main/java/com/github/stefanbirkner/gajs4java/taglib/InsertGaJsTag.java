@@ -1,11 +1,12 @@
 package com.github.stefanbirkner.gajs4java.taglib;
 
 import static com.github.stefanbirkner.gajs4java.core.model.Protocol.DECIDE_BY_JAVASCRIPT;
-import static com.github.stefanbirkner.gajs4java.core.model.Protocol.DECIDE_BY_RENDERER;
+import static com.github.stefanbirkner.gajs4java.core.util.ProtocolUtil.finalProtocolForRequestAndBaseProtocol;
 
 import java.io.IOException;
 import java.io.Writer;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
@@ -23,10 +24,12 @@ public class InsertGaJsTag extends SimpleTagSupport {
 	@Override
 	public void doTag() throws IOException {
 		Writer w = getJspContext().getOut();
-		if (protocol == DECIDE_BY_RENDERER)
-			RENDERER.writeGaJsInsertStatementToWriterUsingRequest(w,
-					((PageContext) getJspContext()).getRequest());
-		else
-			RENDERER.writeGaJsInsertStatementToWriter(w, protocol);
+		Protocol finalProtocol = finalProtocolForRequestAndBaseProtocol(
+				request(), protocol);
+		RENDERER.writeGaJsInsertStatementToWriter(w, finalProtocol);
+	}
+
+	private ServletRequest request() {
+		return ((PageContext) getJspContext()).getRequest();
 	}
 }
