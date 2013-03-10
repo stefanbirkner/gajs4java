@@ -5,7 +5,7 @@ import java.io.Writer;
 
 import com.github.stefanbirkner.gajs4java.core.model.Protocol;
 
-public class InsertGaJsRenderer {
+public class LoadAnalyticsScriptRenderer {
 	private static final String FIRST_LINE = "  (function() {\n";
 	private static final String SECOND_LINE = "    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;\n";
 	private static final String THIRD_LINE_CLIENT = "    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';\n";

@@ -7,7 +7,7 @@ import com.github.stefanbirkner.gajs4java.core.model.TrackingConfiguration;
 
 public class TrackingConfigurationRenderer {
 	private static final GaqRenderer GAQ_RENDERER = new GaqRenderer();
-	private static final InsertGaJsRenderer INSERT_GA_JS_RENDERER = new InsertGaJsRenderer();
+	private static final LoadAnalyticsScriptRenderer LOAD_ANALYTICS_SCRIPT_RENDERER = new LoadAnalyticsScriptRenderer();
 	private static final String START_TAG = "<script type=\"text/javascript\">\n";
 	private static final String EMPTY_LINE = "\n";
 	private static final String END_TAG = "\n</script>";
@@ -20,7 +20,7 @@ public class TrackingConfigurationRenderer {
 		GAQ_RENDERER.writeGaqSnippetWithCommandsToWriter(
 				configuration.getCommands(), writer);
 		writer.write(EMPTY_LINE);
-		INSERT_GA_JS_RENDERER.writeGaJsInsertStatementToWriter(writer,
+		LOAD_ANALYTICS_SCRIPT_RENDERER.writeGaJsInsertStatementToWriter(writer,
 				configuration.getProtocol());
 		writer.write(EMPTY_LINE);
 		writer.write(END_TAG);

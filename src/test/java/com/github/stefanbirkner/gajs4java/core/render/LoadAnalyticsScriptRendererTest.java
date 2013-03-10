@@ -19,8 +19,8 @@ import org.junit.rules.ExpectedException;
 
 import com.github.stefanbirkner.gajs4java.core.model.Protocol;
 
-public class InsertGaJsRendererTest {
-	private final InsertGaJsRenderer renderer = new InsertGaJsRenderer();
+public class LoadAnalyticsScriptRendererTest {
+	private final LoadAnalyticsScriptRenderer renderer = new LoadAnalyticsScriptRenderer();
 
 	@Rule
 	public final ExpectedException thrown = none();
