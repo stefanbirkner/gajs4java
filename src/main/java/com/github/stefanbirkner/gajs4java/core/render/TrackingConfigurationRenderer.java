@@ -20,8 +20,10 @@ public class TrackingConfigurationRenderer {
 		GAQ_RENDERER.writeGaqSnippetWithCommandsToWriter(
 				configuration.getCommands(), writer);
 		writer.write(EMPTY_LINE);
-		LOAD_ANALYTICS_SCRIPT_RENDERER.writeGaJsInsertStatementToWriter(writer,
-				configuration.getProtocol());
+		LOAD_ANALYTICS_SCRIPT_RENDERER
+				.writeScriptLoadingCodeToWriter(writer,
+						configuration.getProtocol(),
+						configuration.getAnalyticsScript());
 		writer.write(EMPTY_LINE);
 		writer.write(END_TAG);
 	}

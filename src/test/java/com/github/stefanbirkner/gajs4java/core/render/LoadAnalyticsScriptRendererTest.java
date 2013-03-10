@@ -1,11 +1,14 @@
 package com.github.stefanbirkner.gajs4java.core.render;
 
+import static com.github.stefanbirkner.gajs4java.core.model.AnalyticsScript.STANDARD;
+import static com.github.stefanbirkner.gajs4java.core.model.AnalyticsScript.WITH_REMARKETING;
 import static com.github.stefanbirkner.gajs4java.core.model.Protocol.DECIDE_BY_JAVASCRIPT;
 import static com.github.stefanbirkner.gajs4java.core.model.Protocol.DECIDE_BY_RENDERER;
 import static com.github.stefanbirkner.gajs4java.core.model.Protocol.HTTP;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.rules.ExpectedException.none;
 
 import java.io.IOException;
@@ -17,6 +20,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import com.github.stefanbirkner.gajs4java.core.model.AnalyticsScript;
 import com.github.stefanbirkner.gajs4java.core.model.Protocol;
 
 public class LoadAnalyticsScriptRendererTest {
@@ -27,26 +31,33 @@ public class LoadAnalyticsScriptRendererTest {
 
 	@Test
 	public void rendersStandardSnippet() throws IOException {
-		assertSnippetForProtocol("ga.js.javascript.snippet",
-				DECIDE_BY_JAVASCRIPT);
+		assertSnippetForProtocolAndScript("ga.js.javascript.snippet",
+				DECIDE_BY_JAVASCRIPT, STANDARD);
+	}
+
+	@Test
+	public void rendersSnippetWithRemarketingSupport() throws IOException {
+		assertSnippetForProtocolAndScript("remarketing.snippet",
+				DECIDE_BY_JAVASCRIPT, WITH_REMARKETING);
 	}
 
 	@Test
 	public void rendersHttpSnippet() throws IOException {
-		assertSnippetForProtocol("ga.js.http.snippet", HTTP);
+		assertSnippetForProtocolAndScript("ga.js.http.snippet", HTTP, STANDARD);
 	}
 
 	@Test
 	public void failsToRenderDecideOnServer() throws IOException {
 		thrown.expect(IllegalArgumentException.class);
-		renderer.writeGaJsInsertStatementToWriter(new StringWriter(),
-				DECIDE_BY_RENDERER);
+		renderer.writeScriptLoadingCodeToWriter(new StringWriter(),
+				DECIDE_BY_RENDERER, STANDARD);
 	}
 
-	private void assertSnippetForProtocol(String snippetName, Protocol protocol)
-			throws IOException {
+	private void assertSnippetForProtocolAndScript(String snippetName,
+			Protocol protocol, AnalyticsScript script) throws IOException {
 		StringWriter w = new StringWriter();
-		renderer.writeGaJsInsertStatementToWriter(w, protocol);
+		renderer.writeScriptLoadingCodeToWriter(w, protocol, script);
+		assertEquals(w.toString(), snippetWithName(snippetName));
 		assertThat(w.toString(), is(equalTo(snippetWithName(snippetName))));
 	}
 
